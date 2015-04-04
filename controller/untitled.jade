@@ -1,0 +1,37 @@
+ extends ./layout.jade
+block content
+  .ui.grid.stackable
+    .row
+      .nine.wide.column
+        .titleHeader
+      
+       ul
+         each event in events 
+
+          button.ui.inverted.red.button Add Event 
+          
+
+          
+  .ui.grid
+    .row
+      .column.stackable
+        
+          button.ui.red.button.remove_event_button Remove Event                   
+
+
+
+
+ //-   h1.event_title
+        //-     =event.title
+        //- p.event.DateTime
+        //-   span.eventStartTime
+        //-    =event.start_time
+        //-   span.dash - 
+        //-   span.eventEndTime
+        //-    =event.end_time
+        //- p.location
+        //-    =event.location
+        //- p.comments
+        //-    =event.comments
+        a.edit_event(href="/events/#{event._id}/edit")
+           form(action="/events/#{event._id}?_method=DELETE" method="POST")

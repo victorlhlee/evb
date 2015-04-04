@@ -1,0 +1,42 @@
+doctype
+html(lang="en")
+head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
+  meta(charset="UTF-8")
+  title EVB CMS
+body
+  div.header
+    h1 EVB Event Content Management System
+  ul
+    each event in events
+      li
+        div.list
+          a(href='/events/#{event._id}')
+            span=event.title
+            br
+            span=event.date
+            br
+            span=event.start_time
+            br
+            span=event.end_time
+            br
+            span=event.comments
+            br
+            span=event.street
+            br
+            span=event.district
+            br
+            span=event.city
+            br
+            span=event.postal_code
+            br
+            span=event.contact
+            br
+            span=event.phone
+
+      form(action="/events/#{event._id}?_method=DELETE", method="POST")    
+        button X    
+
+  a(class='button', href='/new') Add Event    

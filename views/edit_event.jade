@@ -1,0 +1,52 @@
+extends ../layout.jade
+block content
+  .ui.grid
+    h1.page_title Edit Events
+  .ui.grid.stackable
+    .two.column.row
+      .twelve.wide.column
+        .ui.form
+          form(action = /events/#{event._id}?_method="PUT", method ="POST")
+            .fields
+              .twelve.wide.field
+                label(for="title") Event Title:
+                input.edit.event_title(type = "text", name="title", placeholder ="Event Title" value="#{event.title}")
+              .twelve.wide.field
+                label(for="date") Date:
+                input.edit.event_date(type = "date", name="date", placeholder="Event Date" value="#{event.date}")
+              .six.wide.field
+                label(for="start_time") Start Time:
+                input.edit.event_start_time(type = "time", name="start_time", placeholder="Start Time" value="#{event.start_time}")
+              .six.wide.field
+                label(for="end_time") End Time:
+                input.edit.event_end_time(type = "time", name="end_time", placeholder="End Time" value="#{event.end_time}")
+              .twelve.wide.field
+                label(for="body") Comments:
+                textarea.body(type= "text", name= "comment", placeholder= "Comments" cols='20' rows='5') = event.comments   
+              .twelve.wide.field
+                label(for="street") Street:
+                input.edit.event_street(name = "street", placeholder="Street" value="#{event.street}")
+              .six.wide.field
+                label(for="district") District:
+                input.edit.event_district(name = "district", placeholder="District" value="#{event.district}")
+              .six.wide.field
+                label(for="city") City:
+                input.edit.event_city(name = "city", placeholder="City" value="#{event.city}")
+              .seven.wide.field
+                label(for="postal") Postal Code:
+                input.edit.event_postal(name= "postal", placeholder = "Postal Code" value="#{event.postal}")
+              .seven.wide.field
+                label(for="contact") Contact:
+                input.edit.event_contact(type = "text", name = "contact", placeholder = "Contact" value="#{event.contact}")
+              .four.wide.field
+                label(for="phone") Phone:
+                input.edit.event_phone(type = "text", name="phone", placeholder="090-0000-0000" value="#{event.phone}")
+              .twelve.wide.field
+                label(for="google_url") Google Maps URL:
+                input.event_google_url(type="text", name="map", placeholder="http://www.google.com/maps/d/viewer?" value="#{event.google_url}")
+              .twelve.wide.field
+                a.ui.black.basic.button#cancel_button(href="/events/#{event._id}") Cancel
+                button.ui.inverted.red.button#save_button(type="submit") Save    
+
+script(type="text/javascript" src="/js/upload.js")
+

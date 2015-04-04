@@ -1,0 +1,70 @@
+doctype
+html(lang="en")
+head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
+  meta(charset="UTF-8")
+  title EVB CMS
+body
+  .ui.grid
+    h1.page_title New Event
+  .ui.grid.stackable
+      .twelve.wide.column
+        .ui.form
+          form(action="/new_event", method="POST")
+            .fields
+              .twelve.wide.field
+                label(for="title") Event Title:
+                input.event_title(type = "text", name="title", placeholder ="Event Title")
+              .twelve.wide.field
+                label(for="date") Date:
+                input.event_date(type = "date", name="date", placeholder="Event Date")
+              .six.wide.field
+                label(for="start_time") Start Time:
+                input.event_start_time(type = "time", name="start_time", placeholder="Start Time")
+              .six.wide.field
+                label(for="end_time") End Time:
+                input.event_end_time(type = "time", name="end_time", placeholder="End Time")
+              .twelve.wide.field
+                label(for="body") コメント:
+                textarea.body(type= "text", name= "comment", placeholder= "Comments" cols='20' rows='5')    
+              .twelve.wide.field
+                label(for="street")　Street:
+                input.event_street(name = "street", placeholder="Street")
+              .six.wide.field
+                label(for="district") District:
+                input.event_district(name = "district", placeholder="District")
+              .six.wide.field
+                label(for="city") City:
+                input.event_city(name = "city", placeholder="City")
+              .seven.wide.field
+                label(for="postal") Postal Code:
+                input.event_postal(name= "postal", placeholder = "Postal Code")
+              .seven.wide.field
+                label(for="contact") コンタクト:
+                input.event_contact(type = "text", name = "contact", placeholder = "Contact")
+              .four.wide.field
+                label(for="phone") 電話:
+                input.event_phone(type = "text", name="phone", placeholder="090-0000-0000")
+              .twelve.wide.field
+                label(for="google_url") Google Maps URL:
+                input.event_google_url(type="text", name="map", placeholder="http://www.google.com/maps/d/viewer?")
+              .twelve.wide.field
+                a.ui.black.basic.button(href="/") Cancel
+                button.ui.inverted.red.button(type="submit") Save    
+
+script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+script(type="text/javascript" src="/js/event.js")
+
+
+
+
+
+
+
+
+
+
+
+    
