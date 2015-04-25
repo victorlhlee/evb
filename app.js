@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var app = express();
 var methodOverride = require('method-override');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); //a mongoDB object modeling tool designed to work in an asynochronous environment
 
 //controllers
 var event = require("./controller/event");
@@ -14,7 +14,8 @@ mongoose.connect('mongodb://admin:admin@ds053798.mongolab.com:53798/evb');
 //each schema maps to a mongoDB collection and defines the shape of the documents within that collection
 
 
-//middleware
+//middleware bridges the OS or DB and applications, especially on a network
+
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true}));
