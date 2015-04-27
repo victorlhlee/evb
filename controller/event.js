@@ -33,7 +33,18 @@ router.get('/new', function (req, res){
 //   var event_id = req.params.id;
 // });
 
-// //get event page
+//get edit event page
+router.get('/events/:id', function (req, res){
+  var event_id = req.params.id;
+
+  Event.findById(event_id, function (err, event){
+    res.render('edit_event', {
+      event : event
+    });
+  });
+});
+//
+//get event page
 // router.get('/:id', function (req, res){
 //   var event_id = req.params.id;
 //   Event.findById(event_id, function (err, event){
@@ -65,27 +76,26 @@ router.post('/new_event', function (req, res){
   });
 });
 
-// router.put('/:id', function (req, res){
-//   var event_id = req.params.id;
-//   Event.findById(event_id, function(err, eventsFromDB){
-//     eventsFromDB.title = req.body.title;
-//     eventsFromDB.date = req.body.date;
-//     eventsFromDB.start_time = req.body.start_time;
-//     eventsFromDB.end_time = req.body.end_time;
-//     eventsFromDB.comments = req.body.comments;
-//     eventsFromDB.street = req.body.street;
-//     eventsFromDB.district = req.body.district;
-//     eventsFromDB.city = req.body.city;
-//     eventsFromDB.postal_code = req.body.postal_code;
-//     eventsFromDB.contact = req.body.contact;
-//     eventsFromDB.phone = req.contact.phone;
-
-//     eventsFromDB.save(function (err){
-//       if(err) throw err;
-//       res.redirect('/');
-//     });
-//   });
-// });
+router.put('/:id', function (req, res){
+  var event_id = req.params.id;
+  Event.findById(event_id, function(err, eventsFromDB){
+    eventsFromDB.title = req.body.title;
+    eventsFromDB.date = req.body.date;
+    eventsFromDB.start_time = req.body.start_time;
+    eventsFromDB.end_time = req.body.end_time;
+    eventsFromDB.comments = req.body.comments;
+    eventsFromDB.street = req.body.street;
+    eventsFromDB.district = req.body.district;
+    eventsFromDB.city = req.body.city;
+    eventsFromDB.postal_code = req.body.postal_code;
+    eventsFromDB.contact = req.body.contact;
+    eventsFromDB.phone = req.contact.phone;
+    eventsFromDB.save(function (err){
+      if(err) throw err;
+      res.redirect('/');
+    });
+  });
+});
 
 // //delete event in events list
 router.delete('/events/:id', function (req, res){
